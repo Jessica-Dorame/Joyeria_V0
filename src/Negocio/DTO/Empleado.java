@@ -1,5 +1,5 @@
 
-package Negocio;
+package Negocio.DTO;
 
 import java.io.Serializable;
 import java.util.Date;

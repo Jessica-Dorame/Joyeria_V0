@@ -3,8 +3,11 @@ package Presentacion;
 
 //import Negocio.DTOs.UsuarioDTO;
 //import Negocio.FacadeJoyeria;
+import Negocio.DTO.Usuario;
+import Negocio.FacadeJoyeria;
 import java.awt.Color;
 import java.awt.Image;
+import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -15,23 +18,23 @@ import javax.swing.JOptionPane;
  * @author Dórame
  */
 public class InicioSesion extends javax.swing.JFrame {
-//    private ImageIcon imagen;
+   private ImageIcon imagen;
 //    public int rol;
-//    private Icon icono;
-//    UsuarioDTO user;
-//    private FacadeJoyeria fv ; 
+    private Icon icono;
+    List <Object>user;
+    private FacadeJoyeria fv ; 
 //    private String empleado;
 //
-//    public InicioSesion() {
-//        setTitle("Inicio Sesion");
-//        initComponents();
-//        
-//        this.getContentPane().setBackground(Color.WHITE);
-//        this.setLocationRelativeTo(null);          
-//        this.printImagen(lblIconoLogo, "C:\\Users\\jessi\\Documents\\JoyeriaSD_V0\\JoyeriaSD\\src\\imgs\\SD logo.jpg");
-//        fv = new FacadeJoyeria();
-//        
-//    }
+    public InicioSesion() {
+        setTitle("Inicio Sesion");
+        initComponents();
+        
+        this.getContentPane().setBackground(Color.WHITE);
+        this.setLocationRelativeTo(null);          
+        this.printImagen(lblIconoLogo, "C:\\Users\\jessi\\Documents\\Joyeria_newV0\\Joyeria_V0\src\\imgs\\SD logo.jpg");
+        fv = new FacadeJoyeria();
+        
+    }
 //    /**
 //     * Limpia campos TextBox
 //     */
@@ -58,6 +61,12 @@ public class InicioSesion extends javax.swing.JFrame {
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarActionPerformed(evt);
+            }
+        });
+
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
             }
         });
 
@@ -135,11 +144,11 @@ public class InicioSesion extends javax.swing.JFrame {
      * @param evt 
      */
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-//        String u = txtUsuario.getText(); 
-//        String c = String.valueOf(txtPassword.getPassword());
-//        
-//        try{   
-//            this.user = fv.validarInicioSesion(u, c);
+        String u = txtUsuario.getText(); 
+        String c = String.valueOf(txtPassword.getPassword());
+        
+       try{   
+            this.user = fv.validarInicioSesion(u, c);
 //            rol = fv.getRolRepositorio(this.user);
 //            empleado = fv.obtenerEmpleado(user.getId());
 //            
@@ -152,12 +161,17 @@ public class InicioSesion extends javax.swing.JFrame {
 //               }
 //            }
 //            else{JOptionPane.showMessageDialog(null, "Las credenciales no coinciden, verifique");}
+
 //            
-//        } catch(Exception e){
+       } catch(Exception e){
 //            JOptionPane.showMessageDialog(null, e.getMessage());
 //            borrar();
-//        }    
+        }    
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
    /**
      * Abre frame menú
@@ -205,13 +219,13 @@ public class InicioSesion extends javax.swing.JFrame {
             }
         });
     }
-//      private void printImagen (JLabel jl, String ruta){
-//       this.imagen = new ImageIcon(ruta);
-//       this.icono = new ImageIcon 
-//         (this.imagen.getImage().getScaledInstance (jl.getWidth(), jl.getWidth(), Image.SCALE_DEFAULT));
-//       jl.setIcon(icono);
-//       this.repaint();
-//   }
+      private void printImagen (JLabel jl, String ruta){
+       this.imagen = new ImageIcon(ruta);
+       this.icono = new ImageIcon 
+         (this.imagen.getImage().getScaledInstance (jl.getWidth(), jl.getWidth(), Image.SCALE_DEFAULT));
+       jl.setIcon(icono);
+       this.repaint();
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
